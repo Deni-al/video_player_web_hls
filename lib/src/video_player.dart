@@ -427,7 +427,7 @@ class VideoPlayer {
       }
 
       if (!options.controls.allowPictureInPicture) {
-        _videoElement.disablePictureInPicture = true;
+        _videoElement.disablePictureInPicture = true.toJS;;
       }
     }
 
@@ -437,7 +437,7 @@ class VideoPlayer {
     }
 
     if (!options.allowRemotePlayback) {
-      _videoElement.disableRemotePlayback = true;
+      _videoElement.disableRemotePlayback = true.toJS;;
     }
   }
 
