@@ -109,6 +109,18 @@ class VideoPlayer {
             ((String _, JSObject __) {
               _hls!.loadSource(uri.toString());
             }.toJS));
+        // Disable captions by default when the subtitle tracks are loaded
+        _hls!.on(
+          'hlsSubtitleTracksUpdated',
+              (String _, JSObject data) {
+            try {
+              // Disable captions by setting the subtitle track to -1
+              _hls!.subtitleTrack = -1;
+            } catch (e) {
+              debugPrint('Error disabling captions: $e');
+            }
+          }.toJS,
+        );
         _hls!.on(
             'hlsError',
             (String _, JSObject data) {
