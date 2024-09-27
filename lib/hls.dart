@@ -21,10 +21,10 @@ extension HlsExtension on Hls {
   external void on(String event, JSFunction callback);
   external HlsConfig config;
 
-  // Subtitle track handling
-  external List<dynamic> get subtitleTracks;
-  external int get subtitleTrack;
-  external set subtitleTrack(int track);
+  // Using JSArray and JSNumber for subtitleTracks and subtitleTrack
+  external JSArray get subtitleTracks; // Array of subtitle tracks
+  external JSNumber get subtitleTrack; // Current subtitle track index
+  external set subtitleTrack(JSNumber track); // Set the subtitle track
 }
 
 @JS()

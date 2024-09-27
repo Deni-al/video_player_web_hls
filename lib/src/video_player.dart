@@ -114,8 +114,8 @@ class VideoPlayer {
           'hlsSubtitleTracksUpdated',
               (String _, JSObject data) {
             try {
-              // Disable captions by setting the subtitle track to -1
-              _hls!.subtitleTrack = -1;
+              // Disable captions by setting the subtitle track to -1 (using JSNumber)
+              _hls!.subtitleTrack = (-1).toJS;
             } catch (e) {
               debugPrint('Error disabling captions: $e');
             }
