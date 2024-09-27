@@ -106,21 +106,10 @@ class VideoPlayer {
         _hls!.attachMedia(_videoElement);
         _hls!.on(
             'hlsMediaAttached',
-            ((String _, JSObject __) {
+            ((String event, JSObject __) {
+              _hls!.subtitleDisplay = false.toJS;
               _hls!.loadSource(uri.toString());
             }.toJS));
-        // Disable captions by default when the subtitle tracks are loaded
-        _hls!.on(
-          'hlsSubtitleTracksUpdated',
-              (String _, JSObject data) {
-            try {
-              // Disable captions by setting the subtitle track to -1 (using JSNumber)
-              _hls!.subtitleTrack = (-1).toJS;
-            } catch (e) {
-              debugPrint('Error disabling captions: $e');
-            }
-          }.toJS,
-        );
         _hls!.on(
             'hlsError',
             (String _, JSObject data) {

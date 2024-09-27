@@ -19,12 +19,10 @@ extension HlsExtension on Hls {
   external void loadSource(String videoSrc);
   external void attachMedia(web.HTMLVideoElement video);
   external void on(String event, JSFunction callback);
+  external set subtitleDisplay(JSBoolean show);
   external HlsConfig config;
 
-  // Using JSArray and JSNumber for subtitleTracks and subtitleTrack
-  external JSArray get subtitleTracks; // Array of subtitle tracks
-  external JSNumber get subtitleTrack; // Current subtitle track index
-  external set subtitleTrack(JSNumber track); // Set the subtitle track
+  external JSBoolean get subtitleDisplay;
 }
 
 @JS()
