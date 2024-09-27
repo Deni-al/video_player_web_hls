@@ -107,7 +107,9 @@ class VideoPlayer {
         _hls!.on(
             'hlsMediaAttached',
             ((String event, JSObject __) {
+              print('!!!!! isSubtitleDisplay: ${_hls!.subtitleDisplay}');
               _hls!.subtitleDisplay = false.toJS;
+              print('!!!!! isSubtitleDisplay: ${_hls!.subtitleDisplay}');
               _hls!.loadSource(uri.toString());
             }.toJS));
         _hls!.on(
